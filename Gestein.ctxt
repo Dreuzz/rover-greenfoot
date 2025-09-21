@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Gestein
+comment0.text=\n\ Write\ a\ description\ of\ class\ Gestein\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Gestein()
+comment2.params=pFarbe
+comment2.target=Gestein(java.lang.String)
+comment2.text=\n\ alternativer\ Konstruktor,\ bei\ dem\ man\ die\ Farbe\ vorgeben\ kann\n
+comment3.params=
+comment3.target=void\ act()
+comment3.text=\n\ Act\ -\ do\ whatever\ the\ Gestein\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment4.params=
+comment4.target=int\ getWassergehalt()
+numComments=5
