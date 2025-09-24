@@ -4,7 +4,44 @@ public class Rover extends Actor
 {
     private Display anzeige;
 
-    
+    public void A() {
+        fahre();
+        while(gesteinVorhanden()) {
+            nimmGestein();
+            fahre();
+        }
+        setzeMarke();
+    }
+
+    public void B() {
+        do {
+            fahre();
+            nimmGestein();
+        }while(gesteinVorhanden());
+        setzeMarke();
+    }
+
+    public void C() {
+        while(!huegelVorhanden("vorne")) {
+            fahre();
+            while(gesteinVorhanden()) {
+                nimmGestein();
+                fahre();
+            }
+        }
+    }
+
+    public void D() {
+        while(!markeVorhanden()) {
+            fahre();
+            while(gesteinVorhanden()) {
+                nimmGestein();
+                fahre();
+            }
+            entferneMarke();
+        }
+    }
+
     public void pyramide() {
         while (!markeVorhanden()){
             if(!huegelVorhanden("vorne")){
