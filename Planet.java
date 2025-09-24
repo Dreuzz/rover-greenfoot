@@ -94,27 +94,18 @@ public class Planet extends World
         Rover rover = new Rover();
         addObject(rover,2,5);
         Gestein gestein = new Gestein();
-        addObject(gestein,3,5);
-        gestein.setLocation(3,5);
-        gestein.setLocation(4,5);
+        addObject(gestein,4,5);
         Gestein gestein2 = new Gestein();
-        addObject(gestein2,4,5);
+        addObject(gestein2,5,5);
         Gestein gestein3 = new Gestein();
-        addObject(gestein3,3,5);
-        Gestein gestein4 = new Gestein();
-        addObject(gestein4,7,5);
-        Gestein gestein5 = new Gestein();
-        addObject(gestein5,8,5);
+        addObject(gestein3,7,5);
         Marke marke = new Marke();
         addObject(marke,9,5);
-        gestein3.setLocation(3,7);
-        gestein.setLocation(4,6);
-        gestein.setLocation(5,5);
-        gestein2.setLocation(4,5);
-        gestein3.setLocation(3,5);
-        gestein.setLocation(5,6);
-        removeObject(gestein);
-        gestein4.setLocation(7,5);
-        gestein5.setLocation(8,5);
+        Huegel huegel = new Huegel();
+        addObject(huegel,4,4);
+        Huegel huegel2 = new Huegel();
+        addObject(huegel2,6,4);
+        Huegel huegel3 = new Huegel();
+        addObject(huegel3,7,4);
     }
 }
