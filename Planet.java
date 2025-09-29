@@ -90,22 +90,56 @@ public class Planet extends World
      */
     private void prepare()
     {
-
         Rover rover = new Rover();
-        addObject(rover,2,5);
-        Gestein gestein = new Gestein();
-        addObject(gestein,4,5);
-        Gestein gestein2 = new Gestein();
-        addObject(gestein2,5,5);
-        Gestein gestein3 = new Gestein();
-        addObject(gestein3,7,5);
-        Marke marke = new Marke();
-        addObject(marke,9,5);
+        addObject(rover,2,4);
         Huegel huegel = new Huegel();
-        addObject(huegel,4,4);
+        addObject(huegel,9,4);
         Huegel huegel2 = new Huegel();
-        addObject(huegel2,6,4);
+        addObject(huegel2,8,9);
+        Gestein gestein = new Gestein();
+        addObject(gestein,8,4);
+        Gestein gestein2 = new Gestein();
+        addObject(gestein2,13,8);
+        gestein2.setLocation(4,1);
         Huegel huegel3 = new Huegel();
-        addObject(huegel3,7,4);
+        addObject(huegel3,14,8);
+        Huegel huegel4 = new Huegel();
+        addObject(huegel4,13,0);
+        Huegel huegel5 = new Huegel();
+        addObject(huegel5,3,1);
+        gestein2.setLocation(4,6);
+        huegel5.setLocation(5,1);
+        gestein2.setLocation(6,7);
+        gestein2.setLocation(6,6);
+        Huegel huegel6 = new Huegel();
+        addObject(huegel6,6,7);
+        Huegel huegel7 = new Huegel();
+        addObject(huegel7,0,6);
+        Marke marke = new Marke();
+        addObject(marke,1,6);
+        Huegel huegel8 = new Huegel();
+        addObject(huegel8,15,1);
+        Marke marke2 = new Marke();
+        addObject(marke2,15,2);
+        Marke marke3 = new Marke();
+        addObject(marke3,3,10);
+        Huegel huegel9 = new Huegel();
+        addObject(huegel9,2,10);
+        Huegel huegel10 = new Huegel();
+        addObject(huegel10,1,0);
+        Gestein gestein3 = new Gestein();
+        addObject(gestein3,0,0);
+        Gestein gestein4 = new Gestein();
+        addObject(gestein4,4,1);
+        Gestein gestein5 = new Gestein();
+        addObject(gestein5,8,10);
+        marke.setLocation(1,1);
+        Gestein gestein6 = new Gestein();
+        addObject(gestein6,1,6);
+        Marke marke4 = new Marke();
+        addObject(marke4,5,4);
+        Gestein gestein7 = new Gestein();
+        addObject(gestein7,8,7);
+    
     }
 }
