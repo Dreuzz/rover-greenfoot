@@ -7,10 +7,12 @@ public class Rover extends Actor
     public void Schatzsuche() {
         while(!markeVorhanden()) while(!huegelVorhanden("vorne")) {
                 fahre();
-                if (huegelVorhanden("vorne")) if(gesteinVorhanden()) {
-                        drehe("rechts");
+                if (huegelVorhanden("vorne")) if(gesteinVorhanden()){
+                    drehe("rechts");
                     }
-                    else drehe("links");
+                if (huegelVorhanden("vorne")) if(!markeVorhanden()) {
+                    drehe("links");
+                }
             }
     }
 
