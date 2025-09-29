@@ -12,13 +12,18 @@ dependency2.from=Planet
 dependency2.to=Rover
 dependency2.type=UsesDependency
 dependency3.from=Planet
-dependency3.to=Gestein
+dependency3.to=Huegel
 dependency3.type=UsesDependency
 dependency4.from=Planet
-dependency4.to=Marke
+dependency4.to=Gestein
 dependency4.type=UsesDependency
+<<<<<<< HEAD
 dependency5.from=Rover
 dependency5.to=Display
+=======
+dependency5.from=Planet
+dependency5.to=Marke
+>>>>>>> b792b107b3a78a2477cec3aacbd65c0d4c0d1d37
 dependency5.type=UsesDependency
 dependency6.from=Rover
 dependency6.to=Huegel
