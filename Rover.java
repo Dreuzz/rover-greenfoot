@@ -4,6 +4,17 @@ public class Rover extends Actor
 {
     private Display anzeige;
 
+    public void ja1() {
+        while(!markeVorhanden()) {
+            if(huegelVorhanden("links") && huegelVorhanden("rechts")) {
+                nimmGestein();
+                fahre();
+            }else {
+                fahre();
+            }
+        }
+    }
+
     public void Schatzsuche() {
         while(!markeVorhanden()) {
             while(!huegelVorhanden("vorne")) {
