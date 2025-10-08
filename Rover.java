@@ -4,6 +4,68 @@ public class Rover extends Actor
 {
     private Display anzeige;
 
+    public void ja4(int max) {
+        for(int i = 1; i <= max; i++) {
+            for(int s = 1; s<=2; s++) {
+                for(int j = 1; j<=i; j++) {
+                    setzeMarke();
+                    fahre();
+
+                }
+                drehe("rechts");
+            }
+        }
+    }
+
+    public void ja3() {
+        for(int m = 0; m<4; m++) {
+            setzeMarke();
+            fahre();
+            fahre();
+        }
+        drehe("rechts");
+        fahre();
+        drehe("rechts");
+        fahre();
+        for(int n=0; n<4; n++) {
+            setzeMarke();
+            fahre();
+            fahre();
+        }
+        drehe("rechts");
+        fahre();
+        drehe("rechts");
+        fahre();
+    }
+
+    
+    public void ja3_1test() {
+        ja3_1();
+        ja3_1();
+    }
+
+    public void ja3_1() {
+        for(int m = 0; m<4; m++) {
+            setzeMarke();
+            fahre();
+            fahre();
+        }
+        drehe("rechts");
+        fahre();
+        drehe("rechts");
+        fahre();
+        int m = 0;
+    }
+
+    
+
+    public void ja2() {
+
+        for(int i = 0; i<7; i++) {
+            fahre();
+        }
+    }
+
     public void ja1() {
         while(!markeVorhanden()) {
             if(huegelVorhanden("links") && huegelVorhanden("rechts")) {

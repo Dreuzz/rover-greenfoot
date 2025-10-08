@@ -17,9 +17,9 @@ public class Planet extends World
      */
     public Planet()
     {
-        super(16, 12, zellenGroesse);
-        spalten = 16;
-        zeilen = 12;
+        super(20, 20, zellenGroesse);
+        spalten = 20;
+        zeilen = 20;
         setBackground("images/boden.png");
         setPaintOrder(String.class, Display.class, Rover.class, Marke.class, Gestein.class, Huegel.class, DisplayBack.class);
         Greenfoot.setSpeed(20); 
@@ -92,44 +92,6 @@ public class Planet extends World
     {
 
         Rover rover = new Rover();
-        addObject(rover,1,4);
-        Huegel huegel = new Huegel();
-        addObject(huegel,1,3);
-        Huegel huegel2 = new Huegel();
-        addObject(huegel2,2,3);
-        Huegel huegel3 = new Huegel();
-        addObject(huegel3,5,3);
-        Huegel huegel4 = new Huegel();
-        addObject(huegel4,6,3);
-        Huegel huegel5 = new Huegel();
-        addObject(huegel5,2,5);
-        Huegel huegel6 = new Huegel();
-        addObject(huegel6,3,5);
-        Huegel huegel7 = new Huegel();
-        addObject(huegel7,4,5);
-        huegel5.setLocation(5,5);
-        Gestein gestein = new Gestein();
-        addObject(gestein,2,4);
-        Gestein gestein2 = new Gestein();
-        addObject(gestein2,3,4);
-        Gestein gestein3 = new Gestein();
-        addObject(gestein3,5,4);
-        Gestein gestein4 = new Gestein();
-        addObject(gestein4,6,4);
-        Huegel huegel8 = new Huegel();
-        addObject(huegel8,2,5);
-        huegel3.setLocation(5,3);
-        huegel4.setLocation(4,3);
-        Marke marke = new Marke();
-        addObject(marke,7,4);
-        huegel4.setLocation(6,3);
-        marke.setLocation(8,4);
-        gestein3.setLocation(7,4);
-        rover.setLocation(1,4);
-        huegel2.setLocation(0,3);
-        huegel4.setLocation(4,3);
-        gestein3.setLocation(5,4);
-        marke.setLocation(7,4);
-        rover.setLocation(0,4);
+        addObject(rover,9,8);
     }
 }
