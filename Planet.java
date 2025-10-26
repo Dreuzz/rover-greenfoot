@@ -93,5 +93,24 @@ public class Planet extends World
 
         Rover rover = new Rover();
         addObject(rover,9,8);
+        rover.setLocation(5,5);
+        Gestein gestein = new Gestein();
+        addObject(gestein,7,5);
+        Huegel huegel = new Huegel();
+        addObject(huegel,9,5);
+        gestein.setLocation(7,5);
+        Gestein gestein2 = new Gestein();
+        addObject(gestein2,7,5);
+        gestein.setLocation(7,5);
+        Gestein gestein3 = new Gestein();
+        addObject(gestein3,7,5);
+        rover.setLocation(7,5);
+        gestein.setLocation(4,5);
+        rover.setLocation(5,5);
+        gestein.setLocation(5,6);
+        gestein2.setLocation(7,6);
+        gestein2.setLocation(7,5);
+        gestein3.setLocation(7,5);
+        gestein.setLocation(7,5);
     }
 }

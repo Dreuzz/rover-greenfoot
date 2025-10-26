@@ -1,8 +1,44 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 public class Rover extends Actor
 {
     private Display anzeige;
+
+    public void s56nr2c() {
+        int objektAnzahl = 0;
+
+        while(!huegelVorhanden("vorne")) {
+            while(gesteinVorhanden()) {
+                nimmGestein();
+                objektAnzahl++;
+            }
+            fahre();
+        }
+        if(objektAnzahl >= 3) {
+            drehe("links");
+            fahre();
+        }
+        else {
+            drehe("rechts");
+            fahre();
+        }
+    }
+
+    public void s56nr2() {
+        boolean vorhanden = false;
+        while(!huegelVorhanden("vorne")) {
+            if(gesteinVorhanden()) {
+                vorhanden = true;
+            }
+            fahre();
+        }
+        if(vorhanden) {
+            drehe("links");
+        }
+        else {
+            drehe("rechts");
+        }
+        fahre();
+    }
 
     public void ja4(int max) {
         for(int i = 1; i <= max; i++) {
@@ -38,7 +74,6 @@ public class Rover extends Actor
         fahre();
     }
 
-    
     public void ja3_1test() {
         ja3_1();
         ja3_1();
@@ -57,7 +92,6 @@ public class Rover extends Actor
         int m = 0;
     }
 
-    
 
     public void ja2() {
 
