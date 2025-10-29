@@ -3,7 +3,7 @@ public class Rover extends Actor
 {
     private Display anzeige;
 
-    public int anzahlMarkenInFolgeNr1() {
+    public int  anzahlMarkenInFolge() {
         int zaehler = 0;
         while(!huegelVorhanden("vorne")) {
             if(markeVorhanden()) {
@@ -14,15 +14,14 @@ public class Rover extends Actor
         return zaehler;
     }
 
-    public void markenFolgeAblegenNr2(int pAnzahlMarken) {
+    public void markenFolgeAblegen(int pAnzahlMarken) {
         for(int markeSetzen = 1; markeSetzen <= pAnzahlMarken; markeSetzen++) {
             setzeMarke();
             fahre();
         }
-        bisEndeUndZurueckUndNaechste();
     }
 
-    public void rechnenNr3(int reihe1, int reihe2) {
+    public void rechnen(int reihe1, int reihe2) {
         int zaehler = 0;
 
         for(int reihe1setzen = 1; reihe1setzen <= reihe1; reihe1setzen++ ) {
@@ -31,8 +30,9 @@ public class Rover extends Actor
                 zaehler++;
             }
             fahre();
-        }     
-        bisEndeUndZurueckUndNaechste();
+        }
+        bisEndeUndZurückUndNächste();
+
         for(int reihe2setzen = 1; reihe2setzen <= reihe2; reihe2setzen++ ) {
             setzeMarke();
             if(markeVorhanden()) {
@@ -40,7 +40,8 @@ public class Rover extends Actor
             }
             fahre();
         }
-        bisEndeUndZurueckUndNaechste();
+        bisEndeUndZurückUndNächste();
+
         for(int reihe3setzen = 1; reihe3setzen <= zaehler; reihe3setzen++ ) {
             setzeMarke();
             fahre();
@@ -54,7 +55,7 @@ public class Rover extends Actor
         }
     }
 
-    public void bisEndeUndZurueckUndNaechste() {
+    public void bisEndeUndZurückUndNächste() {
         bisHuegelFahren();
         drehe("rechts");
         drehe("rechts");
@@ -64,71 +65,244 @@ public class Rover extends Actor
         drehe("links");
     }
 
-    public void rechnenNr4(int reihe1, int reihe2, char operator) {
-        int reihe1zaehler = 0;
-        int reihe2zaehler = 0;
-        int ergebnisMinus = reihe1zaehler - reihe2zaehler;
+    public void rechteck(int z, int h) {
+        for(int k= 0; k < 2; k++) {
+            for(int i = 1; i < z; i++) {
+                setzeMarke();
+                fahre();
+            }
+            drehe("rechts");
+            for(int i = 1; i < h; i++) {
+                setzeMarke();
+                fahre();
+            }
+            drehe("rechts");
+        }
+    }
 
-        for(int reihe1setzen = 1; reihe1setzen <= reihe1; reihe1setzen++ ) {
-            setzeMarke();
-            if(markeVorhanden()) {
-                reihe1zaehler++;
+    public void lege(int x) {
+        for(int k= 0; k < 4; k++) {
+            for(int i = 1; i < x; i++) {
+                setzeMarke();
+                fahre();
+            }
+            drehe("rechts");
+        }
+    }
+
+    public void s56nr2c() {
+        int objektAnzahl = 0;
+
+        while(!huegelVorhanden("vorne")) {
+            while(gesteinVorhanden()) {
+                nimmGestein();
+                objektAnzahl++;
             }
             fahre();
         }
-        bisEndeUndZurueckUndNaechste();
-        for(int reihe2setzen = 1; reihe2setzen <= reihe2; reihe2setzen++ ) {
-            setzeMarke();
-            if(markeVorhanden()) {
-                reihe2zaehler++;
+        if(objektAnzahl >= 3) {
+            drehe("links");
+            fahre();
+        }
+        else {
+            drehe("rechts");
+            fahre();
+        }
+    }
+
+    public void s56nr2() {
+        boolean vorhanden = false;
+        while(!huegelVorhanden("vorne")) {
+            if(gesteinVorhanden()) {
+                vorhanden = true;
             }
             fahre();
         }
+        if(vorhanden) {
+            drehe("links");
+        }
+        else {
+            drehe("rechts");
+        }
+        fahre();
+    }
+
+    public void ja4(int max) {
+        for(int i = 1; i <= max; i++) {
+            for(int s = 1; s<=2; s++) {
+                for(int j = 1; j<=i; j++) {
+                    setzeMarke();
+                    fahre();
+
+                }
+                drehe("rechts");
+            }
+        }
+    }
+
+    public void ja3() {
+        for(int m = 0; m<4; m++) {
+            setzeMarke();
+            fahre();
+            fahre();
+        }
+        drehe("rechts");
+        fahre();
+        drehe("rechts");
+        fahre();
+        for(int n=0; n<4; n++) {
+            setzeMarke();
+            fahre();
+            fahre();
+        }
+        drehe("rechts");
+        fahre();
+        drehe("rechts");
+        fahre();
+    }
+
+    public void ja3_1test() {
+        ja3_1();
+        ja3_1();
+    }
+
+    public void ja3_1() {
+        for(int m = 0; m<4; m++) {
+            setzeMarke();
+            fahre();
+            fahre();
+        }
+        drehe("rechts");
+        fahre();
+        drehe("rechts");
+        fahre();
+        int m = 0;
+    }
+
+    public void ja2() {
+        for(int i = 0; i<7; i++) {
+            fahre();
+        }
+    }
+
+    public void ja1() {
+        while(!markeVorhanden()) {
+            if(huegelVorhanden("links") && huegelVorhanden("rechts")) {
+                nimmGestein();
+                fahre();
+            }else {
+                fahre();
+            }
+        }
+    }
+
+    public void Schatzsuche() {
+        while(!markeVorhanden()) {
+            while(!huegelVorhanden("vorne")) {
+                fahre();
+            }
+            if(gesteinVorhanden()){
+                drehe("rechts");
+            }else {
+                drehe("links");
+            }
+        }
+    }
+
+    public void S44Nr3b() {
+        ja();
+        drehe("links");
+        drehe("links");
+        ja();
+    }
+
+    public void ja() {
+        setzeMarke();
+        fahre();
+        while(!markeVorhanden()) {
+            if(huegelVorhanden("links")) if(gesteinVorhanden()) {
+                    nimmGestein();
+                }
+            fahre();
+        }
+    }
+
+    public void A() {
+        fahre();
+        while(gesteinVorhanden()) {
+            nimmGestein();
+            fahre();
+        }
+        setzeMarke();
+    }
+
+    public void B() {
+        do {
+            fahre();
+            nimmGestein();
+        }while(gesteinVorhanden());
+        setzeMarke();
+    }
+
+    public void C() {
+        while(!huegelVorhanden("vorne")) {
+            fahre();
+            while(gesteinVorhanden()) {
+                nimmGestein();
+                fahre();
+            }
+        }
+    }
+
+    public void D() {
+        while(!markeVorhanden()) {
+            fahre();
+            while(gesteinVorhanden()) {
+                nimmGestein();
+                fahre();
+            }
+            entferneMarke();
+        }
+    }
+
+    public void pyramide() {
+        while (!markeVorhanden()){
+            if(!huegelVorhanden("vorne")){
+                fahre();
+            }
+            else{
+                drehe("links");
+                fahre();
+                drehe("rechts");
+            }
+        }
+    }
+
+    public void pyramide2() {
+        fahreBisIchWill();
+        mehrereStufen();
+    }
+
+    public void mehrereStufen() {
+        while(huegelVorhanden("vorne")) {
+            fahreStufe();
+        }
+    }
+
+    public void fahreStufe() {
+        drehe("links"); 
+        while(huegelVorhanden("rechts")) {
+            fahre();
+        }
+        drehe("rechts");
+        fahre();
+    }
+
+    public void fahreBisIchWill() {
         while(!huegelVorhanden("vorne")) {
             fahre();
         }
-        bisEndeUndZurueckUndNaechste();
-        if(operator == '+' && reihe1zaehler + reihe2zaehler <= 21) {
-            for(int reihe3 = 1; reihe3 <= reihe1zaehler + reihe2zaehler; reihe3++ ) {
-                setzeMarke();
-                fahre();
-            }
-        }
-        if(operator == '-' && ergebnisMinus <= 0) {
-            for(int reihe3 = 1; reihe3 <= reihe1zaehler - reihe2zaehler; reihe3++ ) {
-                setzeMarke();
-                fahre();
-            }
-        }
-        if(operator == '*' && reihe1zaehler * reihe2zaehler <= 21) {
-            for(int reihe3 = 1; reihe3 <= reihe1zaehler * reihe2zaehler; reihe3++ ) {
-                setzeMarke();
-                fahre();
-            }
-        }
-        if(operator == 'm' && reihe1zaehler / reihe2zaehler <= 0) {
-            for(int reihe3 = 1; reihe3 <= reihe1zaehler / reihe2zaehler; reihe3++ ) {
-                setzeMarke();
-                fahre();
-            }
-        bisHuegelFahren();
-        }else{
-            nachricht("Ungï¿½ltig");
-        }
-        
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * Der Rover bewegt sich ein Feld in Fahrtrichtung weiter.
@@ -144,7 +318,7 @@ public class Rover extends Actor
         {
             nachricht("Zu steil!");
         }
-        // dafï¿½r sorgen, dass der Rover nicht in die unterste Zeile fï¿½hrt...
+        // dafür sorgen, dass der Rover nicht in die unterste Zeile fährt...
         else if(getRotation()==90 && getY()==getWorld().getHeight()-2)
         {
             nachricht("Ich kann mich nicht bewegen");
@@ -162,8 +336,8 @@ public class Rover extends Actor
     }
 
     /**
-     * Der Rover dreht sich um 90 Grad in die Richtung, die mit richtung (ï¿½linksï¿½ oder ï¿½rechtsï¿½) ï¿½bergeben wurde.
-     * Sollte ein anderer Text (String) als "rechts" oder "links" ï¿½bergeben werden, dann erscheint eine entsprechende Meldung auf dem Display.
+     * Der Rover dreht sich um 90 Grad in die Richtung, die mit richtung („links“ oder „rechts“) übergeben wurde.
+     * Sollte ein anderer Text (String) als "rechts" oder "links" übergeben werden, dann erscheint eine entsprechende Meldung auf dem Display.
      */
     public void drehe(String richtung)
     {
@@ -182,7 +356,7 @@ public class Rover extends Actor
     }
 
     /**
-     * Der Rover gibt durch einen Wahrheitswert (true oder false )zurï¿½ck, ob sich auf seiner Position ein Objekt der Klasse Gestein befindet.
+     * Der Rover gibt durch einen Wahrheitswert (true oder false )zurück, ob sich auf seiner Position ein Objekt der Klasse Gestein befindet.
      * Eine entsprechende Meldung erscheint auch auf dem Display.
      */
     public boolean gesteinVorhanden()
@@ -198,9 +372,9 @@ public class Rover extends Actor
     }
 
     /**
-     * Der Rover ï¿½berprï¿½ft, ob sich in richtung ("rechts", "links", oder "vorne") ein Objekt der Klasse Huegel befindet.
+     * Der Rover überprüft, ob sich in richtung ("rechts", "links", oder "vorne") ein Objekt der Klasse Huegel befindet.
      * Das Ergebnis wird auf dem Display angezeigt.
-     * Sollte ein anderer Text (String) als "rechts", "links" oder "vorne" ï¿½bergeben werden, dann erscheint eine entsprechende Meldung auf dem Display.
+     * Sollte ein anderer Text (String) als "rechts", "links" oder "vorne" übergeben werden, dann erscheint eine entsprechende Meldung auf dem Display.
      */
     public boolean huegelVorhanden(String richtung)
     {
@@ -268,7 +442,7 @@ public class Rover extends Actor
     }
 
     /**
-     * Der Rover erzeugt ein Objekt der Klasse ï¿½Markierungï¿½ auf seiner Position.
+     * Der Rover erzeugt ein Objekt der Klasse „Markierung“ auf seiner Position.
      */
     public void setzeMarke()
     {
@@ -276,7 +450,7 @@ public class Rover extends Actor
     }
 
     /**
-     * *Der Rover gibt durch einen Wahrheitswert (true oder false )zurï¿½ck, ob sich auf seiner Position ein Objekt der Marke befindet.
+     * *Der Rover gibt durch einen Wahrheitswert (true oder false )zurück, ob sich auf seiner Position ein Objekt der Marke befindet.
      * Eine entsprechende Meldung erscheint auch auf dem Display.
      */
     public boolean markeVorhanden()
