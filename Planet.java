@@ -17,9 +17,9 @@ public class Planet extends World
      */
     public Planet()
     {
-        super(20, 20, zellenGroesse);
-        spalten = 20;
-        zeilen = 20;
+        super(15, 15, zellenGroesse);
+        spalten = 15;
+        zeilen = 15;
         setBackground("images/boden.png");
         setPaintOrder(String.class, Display.class, Rover.class, Marke.class, Gestein.class, Huegel.class, DisplayBack.class);
         Greenfoot.setSpeed(20); 
@@ -90,27 +90,19 @@ public class Planet extends World
      */
     private void prepare()
     {
-
         Rover rover = new Rover();
-        addObject(rover,9,8);
-        rover.setLocation(5,5);
-        Gestein gestein = new Gestein();
-        addObject(gestein,7,5);
+        addObject(rover,2,6);
         Huegel huegel = new Huegel();
-        addObject(huegel,9,5);
-        gestein.setLocation(7,5);
-        Gestein gestein2 = new Gestein();
-        addObject(gestein2,7,5);
-        gestein.setLocation(7,5);
-        Gestein gestein3 = new Gestein();
-        addObject(gestein3,7,5);
-        rover.setLocation(7,5);
-        gestein.setLocation(4,5);
-        rover.setLocation(5,5);
-        gestein.setLocation(5,6);
-        gestein2.setLocation(7,6);
-        gestein2.setLocation(7,5);
-        gestein3.setLocation(7,5);
-        gestein.setLocation(7,5);
+        addObject(huegel,1,6);
+        Huegel huegel2 = new Huegel();
+        addObject(huegel2,1,7);
+        Huegel huegel3 = new Huegel();
+        addObject(huegel3,1,8);
+        Huegel huegel4 = new Huegel();
+        addObject(huegel4,14,6);
+        Huegel huegel5 = new Huegel();
+        addObject(huegel5,14,7);
+        Huegel huegel6 = new Huegel();
+        addObject(huegel6,14,8);
     }
 }

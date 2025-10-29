@@ -2,6 +2,71 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Rover extends Actor
 {
     private Display anzeige;
+    
+    public void rechnen(int reihe1, int reihe2) {
+        int reihe1zähler = 0;
+        int reihe2zähler = 0;
+        //int reihe3ergebnis = 0;
+        
+        while(!huegelVorhanden("vorne")) {
+            fahre();
+            if(markeVorhanden()) {
+               reihe1zähler++;  
+            }
+        }
+        zurückUndNächste();
+        while(!huegelVorhanden("vorne")) {
+            fahre();
+            if(markeVorhanden()) {
+               reihe2zähler++;  
+            }
+        }
+        zurückUndNächste();
+        while(!huegelVorhanden("vorne")) {
+            for(int reihe3ergebnis = 0; reihe3ergebnis == reihe1zähler + reihe2zähler;) {
+                while(!huegelVorhanden("vorne")) {
+                    setzeMarke();
+                    fahre();
+                }
+            }
+        }
+    }
+    
+    public void zurückUndNächste() {
+        drehe("rechts");
+        drehe("rechts");
+        while(!huegelVorhanden("vorne")) {
+            fahre();
+        }
+        drehe("links");
+        fahre();
+        drehe("links");
+    }
+
+    public void rechteck(int z, int h) {
+        for(int k= 0; k < 2; k++) {
+            for(int i = 1; i < z; i++) {
+                setzeMarke();
+                fahre();
+            }
+            drehe("rechts");
+            for(int i = 1; i < h; i++) {
+                setzeMarke();
+                fahre();
+            }
+            drehe("rechts");
+        }
+    }
+
+    public void lege(int x) {
+        for(int k= 0; k < 4; k++) {
+            for(int i = 1; i < x; i++) {
+                setzeMarke();
+                fahre();
+            }
+            drehe("rechts");
+        }
+    }
 
     public void s56nr2c() {
         int objektAnzahl = 0;
@@ -92,9 +157,7 @@ public class Rover extends Actor
         int m = 0;
     }
 
-
     public void ja2() {
-
         for(int i = 0; i<7; i++) {
             fahre();
         }
