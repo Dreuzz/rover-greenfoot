@@ -3,9 +3,9 @@ public class Rover extends Actor
 {
     private Display anzeige;
 
-    public int anzahlMarkenInFolgeNr1() {
+    public int anzahlMarkenInFolge() {
         int zaehler = 0;
-        while(!huegelVorhanden("vorne")) {
+        while(!huegelVorhanden("vorne") && markeVorhanden()) {
             if(markeVorhanden()) {
                 zaehler++;
             }
@@ -14,7 +14,7 @@ public class Rover extends Actor
         return zaehler;
     }
 
-    public void markenFolgeAblegenNr2(int pAnzahlMarken) {
+    public void markenFolgeAblegenN(int pAnzahlMarken) {
         for(int markeSetzen = 1; markeSetzen <= pAnzahlMarken; markeSetzen++) {
             setzeMarke();
             fahre();
@@ -22,26 +22,12 @@ public class Rover extends Actor
         bisEndeUndZurueckUndNaechste();
     }
 
-    public void rechnenNr3(int reihe1, int reihe2) {
-        int zaehler = 0;
-
-        for(int reihe1setzen = 1; reihe1setzen <= reihe1; reihe1setzen++ ) {
-            setzeMarke();
-            if(markeVorhanden()) {
-                zaehler++;
-            }
-            fahre();
-        }     
+    public void addiereMarkenReihen() {
+        int reihe1zaehler = anzahlMarkenInFolge();    
         bisEndeUndZurueckUndNaechste();
-        for(int reihe2setzen = 1; reihe2setzen <= reihe2; reihe2setzen++ ) {
-            setzeMarke();
-            if(markeVorhanden()) {
-                zaehler++;
-            }
-            fahre();
-        }
+        int reihe2zaehler = anzahlMarkenInFolge();
         bisEndeUndZurueckUndNaechste();
-        for(int reihe3setzen = 1; reihe3setzen <= zaehler; reihe3setzen++ ) {
+        for(int reihe3setzen = 1; reihe3setzen <= reihe1zaehler + reihe2zaehler; reihe3setzen++ ) {
             setzeMarke();
             fahre();
         }
@@ -49,7 +35,7 @@ public class Rover extends Actor
     }
 
     public void bisHuegelFahren() {
-        while(!huegelVorhanden("vorne")) {
+        while(!huegelVorhanden("vorne") && markeVorhanden()) {
             fahre();
         }
     }
@@ -58,77 +44,48 @@ public class Rover extends Actor
         bisHuegelFahren();
         drehe("rechts");
         drehe("rechts");
+        fahre();
         bisHuegelFahren();
         drehe("links");
         fahre();
         drehe("links");
     }
 
-    public void rechnenNr4(int reihe1, int reihe2, char operator) {
-        int reihe1zaehler = 0;
-        int reihe2zaehler = 0;
-        int ergebnisMinus = reihe1zaehler - reihe2zaehler;
+    public void berechneMarkenReihen(char operator) {
+        int reihe1zaehler = anzahlMarkenInFolge();
+        bisEndeUndZurueckUndNaechste();
+        int reihe2zaehler = anzahlMarkenInFolge();
+        bisEndeUndZurueckUndNaechste();
 
-        for(int reihe1setzen = 1; reihe1setzen <= reihe1; reihe1setzen++ ) {
-            setzeMarke();
-            if(markeVorhanden()) {
-                reihe1zaehler++;
-            }
-            fahre();
-        }
-        bisEndeUndZurueckUndNaechste();
-        for(int reihe2setzen = 1; reihe2setzen <= reihe2; reihe2setzen++ ) {
-            setzeMarke();
-            if(markeVorhanden()) {
-                reihe2zaehler++;
-            }
-            fahre();
-        }
-        while(!huegelVorhanden("vorne")) {
-            fahre();
-        }
-        bisEndeUndZurueckUndNaechste();
         if(operator == '+' && reihe1zaehler + reihe2zaehler <= 21) {
             for(int reihe3 = 1; reihe3 <= reihe1zaehler + reihe2zaehler; reihe3++ ) {
                 setzeMarke();
                 fahre();
             }
         }
-        if(operator == '-' && ergebnisMinus <= 0) {
+        else if(operator == '-' && reihe1zaehler - reihe2zaehler >= 0) {
             for(int reihe3 = 1; reihe3 <= reihe1zaehler - reihe2zaehler; reihe3++ ) {
                 setzeMarke();
                 fahre();
             }
         }
-        if(operator == '*' && reihe1zaehler * reihe2zaehler <= 21) {
+        else if(operator == '*' && reihe1zaehler * reihe2zaehler <= 21) {
             for(int reihe3 = 1; reihe3 <= reihe1zaehler * reihe2zaehler; reihe3++ ) {
                 setzeMarke();
                 fahre();
             }
         }
-        if(operator == 'm' && reihe1zaehler / reihe2zaehler <= 0) {
+        else if(operator == '/' && reihe2zaehler > 0 && reihe1zaehler > 0 &&  reihe1zaehler / reihe2zaehler >= 1 ) {
             for(int reihe3 = 1; reihe3 <= reihe1zaehler / reihe2zaehler; reihe3++ ) {
                 setzeMarke();
                 fahre();
             }
-        bisHuegelFahren();
+            bisHuegelFahren();
         }else{
-            nachricht("Ungï¿½ltig");
+            nachricht("Ungültig");
         }
-        
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * Der Rover bewegt sich ein Feld in Fahrtrichtung weiter.
@@ -303,7 +260,7 @@ public class Rover extends Actor
         if(anzeige!=null)
         {
             anzeige.anzeigen(pText);
-            Greenfoot.delay(1);
+            Greenfoot.delay(3);
             anzeige.loeschen();
         }
         else

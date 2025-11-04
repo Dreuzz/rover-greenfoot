@@ -24,7 +24,7 @@ public class Display extends Actor
         public void anzeigen(String pText)
         {
             loeschen();
-            bild = new GreenfootImage(pText, 30, new Color(0,0,0), new Color(161, 218,243)); 
+            bild = new GreenfootImage(pText, 35, new Color(0,0,0), new Color(161, 218,243)); 
             getImage().drawImage(bild, 15,10);
 
         }
