@@ -17,9 +17,9 @@ public class Planet extends World
      */
     public Planet()
     {
-        super(25, 4, zellenGroesse);
+        super(18, 16, zellenGroesse);
         spalten = 0;
-        zeilen = 25;
+        zeilen = 18;
         setBackground("images/boden.png");
         setPaintOrder(String.class, Display.class, Rover.class, Marke.class, Gestein.class, Huegel.class, DisplayBack.class);
         Greenfoot.setSpeed(20); 
@@ -91,18 +91,15 @@ public class Planet extends World
     private void prepare()
     {
         Rover rover = new Rover();
-        addObject(rover,2,0);
-        Huegel huegel = new Huegel();
-        addObject(huegel,1,0);
-        Huegel huegel2 = new Huegel();
-        addObject(huegel2,1,1);
-        Huegel huegel3 = new Huegel();
-        addObject(huegel3,1,2);
-        Huegel huegel4 = new Huegel();
-        addObject(huegel4,23,0);
-        Huegel huegel5 = new Huegel();
-        addObject(huegel5,23,1);
-        Huegel huegel6 = new Huegel();
-        addObject(huegel6,23,2);
+        addObject(rover,2,6);
+        rover.setLocation(8,7);
+        Marke marke = new Marke();
+        addObject(marke,8,2);
+        Marke marke2 = new Marke();
+        addObject(marke2,15,7);
+        Marke marke3 = new Marke();
+        addObject(marke3,2,7);
+        Marke marke4 = new Marke();
+        addObject(marke4,8,13);
     }
 }
