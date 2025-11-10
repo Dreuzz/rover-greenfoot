@@ -90,16 +90,5 @@ public class Planet extends World
      */
     private void prepare()
     {
-        Rover rover = new Rover();
-        addObject(rover,2,6);
-        rover.setLocation(8,7);
-        Marke marke = new Marke();
-        addObject(marke,8,2);
-        Marke marke2 = new Marke();
-        addObject(marke2,15,7);
-        Marke marke3 = new Marke();
-        addObject(marke3,2,7);
-        Marke marke4 = new Marke();
-        addObject(marke4,8,13);
     }
 }

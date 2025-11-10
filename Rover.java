@@ -2,6 +2,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Rover extends Actor
 {
     private Display anzeige;
+    
+    public String nullstellen(double a, double b, double c) {
+        double p = b / a;
+        double q = c / a;
+        
+        double erg1 = 
+        
+        //Math.sqrt();
+        
+        return "ja";
+    }
 
     public int anzahlFelderBisHuegel() {
         int felderBisHuegel = 0;
