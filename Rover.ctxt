@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Rover
-comment1.params=a\ b\ c
-comment1.target=java.lang.String\ nullstellen(double,\ double,\ double)
+comment1.params=
+comment1.target=void\ problem1()
 comment10.params=richtung
 comment10.target=void\ drehe(java.lang.String)
 comment10.text=\r\n\ Der\ Rover\ dreht\ sich\ um\ 90\ Grad\ in\ die\ Richtung,\ die\ mit\ richtung\ (\u00EF\u00BF\u00BDlinks\u00EF\u00BF\u00BD\ oder\ \u00EF\u00BF\u00BDrechts\u00EF\u00BF\u00BD)\ \u00EF\u00BF\u00BDbergeben\ wurde.\r\n\ Sollte\ ein\ anderer\ Text\ (String)\ als\ "rechts"\ oder\ "links"\ \u00EF\u00BF\u00BDbergeben\ werden,\ dann\ erscheint\ eine\ entsprechende\ Meldung\ auf\ dem\ Display.\r\n

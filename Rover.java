@@ -2,16 +2,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Rover extends Actor
 {
     private Display anzeige;
-    
-    public String nullstellen(double a, double b, double c) {
-        double p = b / a;
-        double q = c / a;
-        
-        double erg1 = 
-        
-        //Math.sqrt();
-        
-        return "ja";
+
+    public void problem1() {
+        while(!gesteinVorhanden()){
+            while(!huegelVorhanden("vorne") && huegelVorhanden("rechts")){
+                fahre();
+            }
+            
+            if(!huegelVorhanden("rechts") || !huegelVorhanden("vorne")){
+                drehe("rechts");
+                while(!huegelVorhanden("rechts")) {
+                    fahre();
+                }
+            }
+            
+            if(huegelVorhanden("vorne")) {
+                if(!huegelVorhanden("rechts")) {
+                    drehe("rechts");
+                }
+                else {
+                    drehe("links");
+                }
+            }
+        }
+        nimmGestein();
     }
 
     public int anzahlFelderBisHuegel() {
